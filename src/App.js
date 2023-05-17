@@ -44,7 +44,7 @@ function App() {
   return (
     <AppContext.Provider value={context}>
       <div className="App">
-        {setShowConfirmation && <div className="confirmation-message">Thank you! Your order has been placed.</div>}
+        {showConfirmation && <div className="confirmation-message">Thank you! Your order has been placed.</div>}
         {showEventInfoView && <EventInfo event={event} />}
         {showEventListView && <EventList events={EVENTS} />}
         {showCheckoutView && <EventCheckout checkoutInfo={checkoutInfo} />}
