@@ -1,0 +1,112 @@
+.event-checkout {
+    display: flex;
+    height: 100%;
+    padding: 48px;
+}
+
+.event-checkout__container {
+    display: flex;
+    max-width: 1080px;
+    margin: 0px auto;
+    height: 100%;
+}
+
+.event-checkout-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.event-checkout-column--right {
+    flex: 0 0 400px;
+    margin-left: 24px;
+}
+
+
+.event-checkout__tile {
+    border: 1px solid rgb(191, 191, 191);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 24px;
+    text-align: left;
+}
+
+.event-checkout__tile__header {
+    line-height: 1.25;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.event-checkout__tile__content {
+    padding-top: 16px;
+    
+}
+
+.event-delivery__title {
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.event-delivery__content {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(38, 38, 38, 0.65);
+}
+
+.credit-card-item__add-container {
+    padding: 16px;
+}
+
+.credit-card-item__icon {
+    margin-right: 12px;
+}
+
+.credit-card-item__add {
+    color: rgb(2, 108, 223);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s, transform 100ms cubic-bezier(0.55, 0.085, 0.68, 0.53) 0s;
+}
+
+.credit-card-item__add:hover {
+    color: rgb(1, 80, 167);
+}
+
+.event-checkout-price__content {
+    margin-top: 16px;
+}
+
+.event-checkout-price__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-checkout-price__header {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.event-checkout-price__block:not(:last-child)  {
+    margin-bottom: 16px;
+}
+
+.event-checkout-price__button {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2.63;
+    width: 100%;
+    padding: 0px 14px;
+    margin-top: 24px;
+    min-width: 60px;
+    text-align: center;
+    border-radius: 2px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(27, 171, 30);
+    transition: background-color 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+}
+
+.event-checkout-price__button:hover {
+    background-color: rgb(20, 128, 22);
+}

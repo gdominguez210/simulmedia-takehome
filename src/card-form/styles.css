@@ -1,0 +1,89 @@
+.credit-card-form__row {
+    padding: 8px;
+}
+
+.credit-card-form__row--controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.credit-card-input {
+    position: relative;
+    width: 100%;
+}
+
+.credit-card-input__label {
+    font-size: 14px;
+    height: 16px;
+    display: flex;
+}
+
+.credit-card-input__card-number {
+    padding-left: 56px;
+}
+
+.credit-card-input__icon {
+    position: absolute;
+    left: 12px;
+    top: 28px;
+}
+
+.credit-card-input__svg {
+    color: #c7c7c7;
+    margin-right: 8px;
+}
+
+.credit-card-input__security-code {
+    width: 120px;
+}
+
+.credit-card-input__security-code__info {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    font-size: 12px;
+}
+
+.credit-card-form__submit-button {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 2.63;
+    padding: 0px 14px;
+    margin: 8px 0px 0px 8px;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgb(2, 108, 223);
+    border-radius: 2px;
+    border: none;
+    transition: background-color 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+}
+
+.credit-card-form__submit-button:hover {
+    background-color: rgb(1, 80, 167);
+}
+
+.credit-card-form__submit-button:disabled {
+    opacity: 0.2;
+}
+
+.credit-card-form__submit-button--cancel {
+    background-color: transparent;
+    color: rgb(2, 108, 223);
+}
+
+.credit-card-form__submit-button--cancel:hover {
+    background-color: rgb(214, 231, 250);
+}
+
+.credit-card-form__back-button {
+    font-weight: bold;
+    color: rgb(2, 108, 223);
+    font-size: 16px;
+    padding: 0px;
+}
+
+.credit-card-form__back-button:hover {
+    color: rgb(2, 108, 223);
+}

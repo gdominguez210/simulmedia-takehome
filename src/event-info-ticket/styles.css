@@ -1,0 +1,98 @@
+.event-price__fees {
+    display: flex;
+    padding: 16px;
+    flex: 1 1 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-ticket {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.event-ticket__type {
+    font-weight: bold;
+}
+
+.event-ticket__price-with-fees {
+    color: rgb(114, 114, 114);
+    font-size: 12px;
+}
+.event-ticket__controls__button {
+    color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.event-ticket__controls__quantity {
+    font-size: 26px;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-ticket__controls__button--remove {
+    background-color: #727272;
+}
+
+.event-ticket__controls__button--add {
+    background-color: #026cdf;
+}
+
+.event-checkout-info {
+    border-top: 1px solid #dfe4e7;
+    padding: 16px;
+    text-align: left;
+}
+
+.event-checkout-info__quantity {
+    margin-bottom: 8px;
+}
+
+.event-checkout-info__subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-checkout-info__price-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-checkout-info__price-breakdown {
+    font-size: 12px;
+    color: rgba(38, 38, 38, 0.65);
+}
+
+.event-checkout-info__button {
+    margin-top: 16px;
+    background-color: rgb(27, 171, 30);
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 2.43;
+    font-weight: bold;
+    transition: 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s;
+}
+
+.event-checkout-info__button:hover {
+    background-color: rgb(35, 112, 44);
+}
+
+.disabled {
+    background-color: #cce2f9;
+    cursor: initial;
+}
