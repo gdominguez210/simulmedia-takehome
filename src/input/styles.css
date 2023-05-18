@@ -15,11 +15,11 @@
     border: 1px solid rgb(2, 108, 223);
 }
 
-.error {
+.input--error {
     border: 1px solid rgb(217, 58, 58);
 }
 
-.disabled {
+.input--disabled {
     color: #b8b8b8;
     pointer-events: none;
 }

@@ -6,8 +6,8 @@ import EventInfo from './event-info';
 import EventCheckout from './event-checkout';
 
 const DEFAULT_CONTEXT = {
-  event: null,
-  checkout: null
+  eventInfo: null,
+  checkoutInfo: null
 }
 
 export const AppContext = createContext(DEFAULT_CONTEXT);

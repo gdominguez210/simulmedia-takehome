@@ -19,7 +19,7 @@ const EventTicket = ({ ticket, ticketLimit }) => {
     const { onSetCheckoutInfo } = useContext(AppContext);
 
     const [showFees, setShowFees] = useState(true);
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(MIN_QUANTITY);
 
     const changeQuantity = (val) => {
         setQuantity(quantity => {
@@ -48,6 +48,7 @@ const EventTicket = ({ ticket, ticketLimit }) => {
 
     const onClick = (e) => {
         e?.stopPropagation();
+
         onSetCheckoutInfo({ 
             quantity, 
             deliveryOption: deliveryOptions[0],
@@ -63,7 +64,12 @@ const EventTicket = ({ ticket, ticketLimit }) => {
     return <div className="event-price">
         <div className="event-price__fees">
             <div>Show Prices With Fees</div>
-            <div><ToggleSwitch onClick={onToggleFees} checked={showFees} /></div>
+            <div>
+                <ToggleSwitch 
+                    checked={showFees} 
+                    onClick={onToggleFees} 
+                />
+            </div>
         </div>
         <div className="event-ticket">
             <div className="event-ticket__details">
@@ -86,17 +92,17 @@ const EventTicket = ({ ticket, ticketLimit }) => {
                     -
                 </button>}
                 <span className="event-ticket__controls__quantity">{quantity}</span>
-                {<button
-                    disabled={!increaseQuantityEnabled}
+                <button
                     className={[
                         "event-ticket__controls__button", 
                         "event-ticket__controls__button--add", 
                         !increaseQuantityEnabled && "disabled"
                     ].filter(Boolean).join(" ")}
+                    disabled={!increaseQuantityEnabled}
                     onClick={() => changeQuantity(1)}
                 >
                     +
-                </button>}
+                </button>
             </div>
         </div>
         <div className="event-checkout-info">
@@ -107,9 +113,7 @@ const EventTicket = ({ ticket, ticketLimit }) => {
                         {showFees && <>Total</>}
                     </b>
                 </div>
-                <div>
-                    {formattedTotalPrice}                    
-                </div>
+                <div>{formattedTotalPrice}</div>
             </div>
             <div className="event-checkout-info__quantity">
                 {quantity} {quantity > 1 ? <>Tickets</> : <>Tickets</>}
@@ -124,7 +128,12 @@ const EventTicket = ({ ticket, ticketLimit }) => {
                     <div>{formattedFees}</div>
                 </div>
             </div>}
-            <button className="event-checkout-info__button" onClick={onClick}>Next</button>
+            <button 
+                className="event-checkout-info__button" 
+                onClick={onClick}
+            >
+                Next
+            </button>
         </div>
     </div>
 }

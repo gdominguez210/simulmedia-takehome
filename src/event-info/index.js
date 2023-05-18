@@ -4,16 +4,16 @@ import EventInfoTicket from '../event-info-ticket';
 
 const EventInfo = ({ event }) => {
     const {
+        address,
+        agePolicy,
         dateObject: {
             date,
             day,
             time
         } = {},
-        title,
         ticket,
-        address,
-        agePolicy,
-        ticketLimit
+        ticketLimit,
+        title
     } = event;
 
     return <div className="event-info">
@@ -24,13 +24,20 @@ const EventInfo = ({ event }) => {
                 <div>{address}</div>
             </div>
             <div className="event-info__image">
-                <Image altText={title} width={305} height={226} />
+                <Image 
+                    altText={title} 
+                    height={226} 
+                    width={305} 
+                />
             </div>
             <div className="event-info__details">
                 <div><b>Event Ticket Limit:</b> {ticketLimit}</div>
                 <div><b>Age Policy:</b> {agePolicy}</div>
             </div>
-            <EventInfoTicket ticket={ticket} ticketLimit={ticketLimit} />
+            <EventInfoTicket 
+                ticket={ticket} 
+                ticketLimit={ticketLimit} 
+            />
         </div>
     </div>
 }

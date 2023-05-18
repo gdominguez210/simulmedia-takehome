@@ -5,21 +5,19 @@ import { AppContext } from '../App';
 
 const EventListItem = ({ event }) => {
     const { 
-        image, 
-        dateObject,
-        title, 
         address,
         cta,
-        status
+        dateObject,
+        image, 
+        title
     } = useEventListItemData({ event });
 
     return <EventListItemView 
-        image={image}
-        dateObject={dateObject}
-        title={title}
         address={address}
         cta={cta}
-        status={status}
+        dateObject={dateObject}
+        image={image}
+        title={title}
     />
 }
 
@@ -28,8 +26,7 @@ const useEventListItemData = ({ event = {} }) => {
         imagePreview, 
         dateObject,
         title, 
-        address,
-        status 
+        address
     } = event;
 
     const { onSetEvent } = useContext(AppContext);
@@ -39,32 +36,31 @@ const useEventListItemData = ({ event = {} }) => {
     }
 
     return {
-        image: imagePreview, 
-        dateObject,
-        title, 
         address,
-        status,
+        dateObject,
+        image: imagePreview, 
+        title, 
         cta: {
-            onClick: onSeeTicketClick,
             displayText: 'See Tickets',
+            onClick: onSeeTicketClick
         }
     }
 }
 
 const EventListItemView = (props) => {
     const { 
+        address,
+        cta: {
+            onClick,
+            displayText,
+            altText
+        } = {},
         dateObject: {
             date,
             day,
             time
         } = {},
         title,
-        address,
-        cta: {
-            onClick,
-            displayText,
-            altText
-        },
     } = props;
 
     return <li className="event-item">
@@ -81,8 +77,8 @@ const EventListItemView = (props) => {
                 <div className="event-item__day">{day} &#8226; {time}</div>
             </div>
             <div className="event-item__details">
-                <div className={"event-item__title"}>{title}</div>
-                <div className={"event-item__address"}>{address}</div>
+                <div className="event-item__title">{title}</div>
+                <div className="event-item__address">{address}</div>
             </div>
         </div>
         <div className="event-item__control">
@@ -90,7 +86,7 @@ const EventListItemView = (props) => {
                 alt={altText}
                 className={"event-item__button"} 
                 onClick={onClick} 
-                >
+            >
                 {displayText}
             </button>
         </div>

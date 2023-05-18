@@ -8,10 +8,6 @@ const isRequired = (value) => {
     return Boolean(value.length);
 }
 
-const isNumeric = (value) => {
-    return /^-?\d+$/.test(value);
-}
-
 const DEFAULT_FORM = {
     cardHolderName: '',
     cardNumber: '',
@@ -154,21 +150,24 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
 
     return <form onSubmit={(e) => { e.preventDefault() }} >
         <div className="credit-card-form__row">
-            <button onClick={onCancel} className="credit-card-form__back-button">
+            <button 
+                className="credit-card-form__back-button"
+                onClick={onCancel} 
+            >
                 {`< Back to Stored Cards`}
             </button>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Name on Card"
-                    id="name-on-card"
-                    name="cardHolderName" 
-                    onChange={onChange} 
-                    value={form.cardHolderName}
-                    type="text"
-                    onBlur={onBlur}
                     error={errors.cardHolderName}
+                    id="name-on-card"
+                    label="Name on Card"
+                    onBlur={onBlur}
+                    onChange={onChange} 
+                    name="cardHolderName" 
+                    type="text"
+                    value={form.cardHolderName}
                 />
             </div>
         </div>
@@ -176,54 +175,64 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     className="credit-card-input__card-number"
-                    id="card-number"
-                    name="cardNumber" 
-                    label="Card Number"
-                    onKeyDown={onKeyDown} 
-                    onChange={onCardNumberChange}
-                    value={form.cardNumber}
-                    type="text"
-                    onBlur={onBlur}
                     error={errors.cardNumber}
+                    id="card-number"
+                    label="Card Number"
                     maxLength="19"
+                    name="cardNumber" 
+                    onBlur={onBlur}
+                    onChange={onCardNumberChange}
+                    onKeyDown={onKeyDown} 
+                    type="text"
+                    value={form.cardNumber}
                 />
-                <div className="credit-card-input__icon"><FontAwesomeIcon icon={faCreditCard} size="2xl" className="credit-card-input__svg" /></div>
+                <div className="credit-card-input__icon">
+                    <FontAwesomeIcon 
+                        className="credit-card-input__svg" 
+                        icon={faCreditCard} 
+                        size="2xl" 
+                    />
+                </div>
             </div>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Expiration Date"
                     error={errors.expirationDate}
                     id="expiration-date"
-                    name="expirationDate" 
-                    placeholder="MM/YY"
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    value={form["expirationDate"]}
-                    type="text"
+                    label="Expiration Date"
                     maxLength="5"
+                    name="expirationDate" 
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    placeholder="MM/YY"
+                    type="text"
+                    value={form.expirationDate}
                 />
             </div>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Security Code"
                     className="credit-card-input__security-code"
                     error={errors.securityCode}
                     id="security-code"
-                    name="securityCode" 
-                    placeholder="CCV"
-                    onKeyDown={onKeyDown}
-                    onChange={onChange} 
-                    onBlur={onBlur}
-                    value={form["securityCode"]}
-                    type="text"
+                    label="Security Code"
                     maxLength="3"
+                    name="securityCode" 
+                    onBlur={onBlur}
+                    onChange={onChange}
+                    onKeyDown={onKeyDown}
+                    placeholder="CCV"
+                    type="text"
+                    value={form.securityCode}
                 >
                     <div className="credit-card-input__security-code__info">
-                        <FontAwesomeIcon icon={faCreditCard} size="2xl" className="credit-card-input__svg" />
+                        <FontAwesomeIcon 
+                            className="credit-card-input__svg" 
+                            icon={faCreditCard} 
+                            size="2xl" 
+                        />
                         <span>3-digits on back of card</span>
                     </div>
                 </Input>
@@ -231,94 +240,104 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
         </div>
         <div className="credit-card-form__row">
             <Input
-                label="Country"
-                value={form.country}
-                readOnly
                 disabled
+                label="Country"
+                readOnly
+                value={form.country}
             />
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Address"
-                    id="address"
-                    name="address"
-                    onChange={onChange} 
-                    value={form.address}
-                    type="text"
-                    onBlur={onBlur}
                     error={errors.address}
+                    id="address"
+                    label="Address"
+                    name="address"
+                    onBlur={onBlur}
+                    onChange={onChange} 
+                    type="text"
+                    value={form.address}
                 />
             </div>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Address 2 (Optional)"
                     id="address-2"
+                    label="Address 2 (Optional)"
                     name="addressLine2"
-                    onChange={onChange} 
-                    value={form.addressLine2}
-                    type="text"
                     onBlur={onBlur}
-                    error={errors.addressLine2}
+                    onChange={onChange} 
+                    type="text"
+                    value={form.addressLine2}
                 />
             </div>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="City"
-                    id="city"
-                    name="city"
-                    onChange={onChange} 
-                    value={form.city}
-                    type="text"
-                    onBlur={onBlur}
                     error={errors.city}
+                    id="city"
+                    label="City"
+                    name="city"
+                    onBlur={onBlur}
+                    onChange={onChange} 
+                    type="text"
+                    value={form.city}
                 />
             </div>
         </div>
         <div className="credit-card-form__row">
             <Input
-                label="State"
-                value={form.state}
-                readOnly
                 disabled
+                label="State"
+                readOnly
+                value={form.state}
             />
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    label="Postal Code"
-                    id="postal-code"
-                    name="postalCode"
-                    onChange={onChange} 
-                    value={form.postalCode}
-                    type="text"
-                    onBlur={onBlur}
                     error={errors.postalCode}
+                    id="postal-code"
+                    label="Postal Code"
+                    name="postalCode"
+                    onBlur={onBlur}
+                    onChange={onChange} 
+                    type="text"
+                    value={form.postalCode}
                 />
             </div>
         </div>
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
+                    error={errors.phone}
                     label="Phone Number"
                     id="phone-number"
-                    name="phone"
-                    onChange={onPhoneNumberChange} 
-                    value={form.phone}
-                    type="tel"
-                    onBlur={onBlur}
-                    error={errors.phone}
                     maxLength="14"
+                    name="phone"
+                    onBlur={onBlur}
+                    onChange={onPhoneNumberChange} 
+                    type="tel"
+                    value={form.phone}
                 />
             </div>
         </div>
         <div className="credit-card-form__row credit-card-form__row--controls">
-            <button className="credit-card-form__submit-button credit-card-form__submit-button--cancel" onClick={onCancel} type="button">Cancel</button>
-            <button className="credit-card-form__submit-button" onClick={onClick}>Add New Card</button>
+            <button 
+                className="credit-card-form__submit-button credit-card-form__submit-button--cancel" 
+                onClick={onCancel} 
+                type="button"
+            >
+                Cancel
+            </button>
+            <button 
+                className="credit-card-form__submit-button" 
+                onClick={onClick}
+            >
+                Add New Card
+            </button>
         </div>
     </form>
 }

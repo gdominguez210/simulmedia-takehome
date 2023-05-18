@@ -47,7 +47,7 @@ const EventCheckout = () => {
     }
 
     const onDeleteCard = (index) => {
-        setCards(prevCards => prevCards.filter((card, i) => i !== index));
+        setCards(prevCards => prevCards.filter((_, i) => i !== index));
     }
 
     const onCancelNewCard = () => {
@@ -73,14 +73,36 @@ const EventCheckout = () => {
                     content={<>
                         {!showCardForm && <>
                             <div>Use Credit/Debit Card</div>
-                            <CreditCardList cards={cards} onCardClick={onCardClick} selected={selected} onDeleteCard={onDeleteCard} />
+                            <CreditCardList 
+                                cards={cards} 
+                                onCardClick={onCardClick} 
+                                onDeleteCard={onDeleteCard} 
+                                selected={selected} 
+                            />
                             <div className="credit-card-item__add-container">
-                                <FontAwesomeIcon icon={faPlus} size="2xl" className="credit-card-item__icon" color="rgb(2, 108, 223)" /> 
-                                <FontAwesomeIcon icon={faCreditCard} size="2xl" className="credit-card-item__icon" /> 
-                                <button className="credit-card-item__add" onClick={onAddNewCard}>Add New Card</button>
+                                <FontAwesomeIcon 
+                                    className="credit-card-item__icon" 
+                                    color="rgb(2, 108, 223)"
+                                    icon={faPlus} 
+                                    size="2xl"
+                                />
+                                <FontAwesomeIcon 
+                                    className="credit-card-item__icon" 
+                                    icon={faCreditCard} 
+                                    size="2xl" 
+                                /> 
+                                <button 
+                                    className="credit-card-item__add" 
+                                    onClick={onAddNewCard}
+                                >
+                                    Add New Card
+                                </button>
                             </div>
                         </>}
-                        {showCardForm && <CreditCardForm onCancel={onCancelNewCard} onSubmit={onSubmitNewCard}/>}
+                        {showCardForm && <CreditCardForm 
+                            onCancel={onCancelNewCard} 
+                            onSubmit={onSubmitNewCard}
+                        />}
                     </>}
                 />
             </div>
@@ -106,7 +128,12 @@ const EventCheckout = () => {
                             </div>
                         </div>
                         <div>
-                            <button className="event-checkout-price__button" onClick={onPlaceOrder}>Place Order</button>
+                            <button 
+                                className="event-checkout-price__button" 
+                                onClick={onPlaceOrder}
+                            >
+                                Place Order
+                            </button>
                         </div>
                     </div>}
                 />
