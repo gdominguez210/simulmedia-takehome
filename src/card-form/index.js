@@ -10,7 +10,6 @@ const isRequired = (value) => {
 }
 
 const DEFAULT_FORM = {
-    _id: v4(),
     cardHolderName: '',
     cardNumber: '',
     expirationDate: '',
@@ -70,7 +69,7 @@ const VALIDATE_OBJECT = {
 }
 
 const CreditCardForm = ({ onSubmit, onCancel }) => {
-    const [form, setForm] = useState(DEFAULT_FORM);
+    const [form, setForm] = useState({ ...DEFAULT_FORM, _id: v4() });
     const [errors, setErrors] = useState({})
 
     const onChange = (e) => {

@@ -43,7 +43,7 @@ const EventCheckout = () => {
             card
         ]))
 
-        setSelected(prevSelected => prevSelected + 1)
+        setSelected(cards.length);
         setShowCardForm(false);
     }
 
