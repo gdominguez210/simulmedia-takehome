@@ -8,7 +8,7 @@ const CreditCardList = ({ cards, onCardClick, onDeleteCard, selected }) => {
             return <CreditCardItem 
                 card={card} 
                 index={i} 
-                key={i} 
+                key={card._id} 
                 onClick={onCardClick} 
                 onDeleteCard={onDeleteCard} 
                 selected={selected === i} 
@@ -47,7 +47,8 @@ const CreditCardItem = (props) => {
             <input 
                 className="credit-card-item__radio" 
                 checked={selected} 
-                type="radio" 
+                type="radio"
+                onChange={() => null}
             />
             <div className="credit-card-item__details">
                 <div className="credit-card-item__header">
@@ -64,12 +65,14 @@ const CreditCardItem = (props) => {
                     {cardHolderName} | exp {expirationDate}
                 </div>
                 <div className="credit-card-item__controls">
-                    <button 
+                    <div 
                         className="credit-card-item__delete" 
                         onClick={onDelete}
+                        role="button"
+                        tabIndex="0"
                     >
                         Delete
-                    </button>
+                    </div>
                 </div>
             </div>
         </button>

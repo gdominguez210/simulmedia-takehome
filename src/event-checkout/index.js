@@ -48,6 +48,7 @@ const EventCheckout = () => {
 
     const onDeleteCard = (index) => {
         setCards(prevCards => prevCards.filter((_, i) => i !== index));
+        setSelected(0);
     }
 
     const onCancelNewCard = () => {
@@ -129,8 +130,12 @@ const EventCheckout = () => {
                         </div>
                         <div>
                             <button 
-                                className="event-checkout-price__button" 
+                                className={[
+                                    "event-checkout-price__button",
+                                    !cards.length && "disabled"
+                                ].filter(Boolean).join(" ")}
                                 onClick={onPlaceOrder}
+                                disabled={!cards.length}
                             >
                                 Place Order
                             </button>

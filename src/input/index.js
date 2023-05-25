@@ -1,4 +1,5 @@
 import './styles.css';
+import { useId } from 'react';
 
 const Input = ({ className, children, disabled, error, label, ...props}) => {
     const _className = [
@@ -8,25 +9,28 @@ const Input = ({ className, children, disabled, error, label, ...props}) => {
         className
     ].filter(Boolean).join(" ");
 
+    const id = useId();
+
     return <>
         {label && <label 
             className="input__label" 
-            htmlFor={props.name}
+            htmlFor={id}
         >
             {label}
         </label>}
         <div className="input__wrapper">
-            <input 
-                ariaDescribedBy={`${props.name}-error`} 
+            <input
+                id={id}
+                aria-describedby={`${id}-error`} 
                 className={_className} 
-                {...props} 
+                {...props}
             />
             {children}
         </div>
         <div
-            ariaLive="polite"
+            aria-live="polite"
             className="input__error"
-            id={`${props.name}-error`} 
+            id={`${id}-error`} 
         >
             {error}
         </div>

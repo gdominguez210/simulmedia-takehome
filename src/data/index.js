@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 
 export const TICKET_TYPES = {
     1: 'Day of Show'
@@ -99,6 +100,7 @@ export const EVENTS = [
 ]
 
 export const CARDS = [{
+    _id: v4(),
     cardHolderName: 'John Smith',
     cardNumber: '1111 1111 1111',
     expirationDate: '06/24',

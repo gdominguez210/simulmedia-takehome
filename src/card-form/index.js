@@ -3,12 +3,14 @@ import Input from '../input';
 import './styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard } from '@fortawesome/free-regular-svg-icons';
+import { v4 } from 'uuid';
 
 const isRequired = (value) => {
     return Boolean(value.length);
 }
 
 const DEFAULT_FORM = {
+    _id: v4(),
     cardHolderName: '',
     cardNumber: '',
     expirationDate: '',
@@ -161,7 +163,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     error={errors.cardHolderName}
-                    id="name-on-card"
                     label="Name on Card"
                     onBlur={onBlur}
                     onChange={onChange} 
@@ -176,7 +177,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
                 <Input
                     className="credit-card-input__card-number"
                     error={errors.cardNumber}
-                    id="card-number"
                     label="Card Number"
                     maxLength="19"
                     name="cardNumber" 
@@ -199,7 +199,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     error={errors.expirationDate}
-                    id="expiration-date"
                     label="Expiration Date"
                     maxLength="5"
                     name="expirationDate" 
@@ -216,7 +215,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
                 <Input
                     className="credit-card-input__security-code"
                     error={errors.securityCode}
-                    id="security-code"
                     label="Security Code"
                     maxLength="3"
                     name="securityCode" 
@@ -250,7 +248,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     error={errors.address}
-                    id="address"
                     label="Address"
                     name="address"
                     onBlur={onBlur}
@@ -263,7 +260,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
         <div className="credit-card-form__row">
             <div className="credit-card-input">
                 <Input
-                    id="address-2"
                     label="Address 2 (Optional)"
                     name="addressLine2"
                     onBlur={onBlur}
@@ -277,7 +273,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     error={errors.city}
-                    id="city"
                     label="City"
                     name="city"
                     onBlur={onBlur}
@@ -299,7 +294,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
             <div className="credit-card-input">
                 <Input
                     error={errors.postalCode}
-                    id="postal-code"
                     label="Postal Code"
                     name="postalCode"
                     onBlur={onBlur}
@@ -314,7 +308,6 @@ const CreditCardForm = ({ onSubmit, onCancel }) => {
                 <Input
                     error={errors.phone}
                     label="Phone Number"
-                    id="phone-number"
                     maxLength="14"
                     name="phone"
                     onBlur={onBlur}

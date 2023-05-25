@@ -12,6 +12,12 @@ button {
   cursor: pointer;
 }
 
+button.disabled {
+  opacity: .5;
+  cursor: initial;
+  pointer-events: none;
+}
+
 .confirmation-message {
     height: 100%;
     display: flex;
