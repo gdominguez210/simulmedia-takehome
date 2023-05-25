@@ -43,6 +43,7 @@ const EventCheckout = () => {
             card
         ]))
 
+        setSelected(prevSelected => prevSelected + 1)
         setShowCardForm(false);
     }
 
